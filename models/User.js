@@ -7,8 +7,8 @@ class User extends Model{
     checkPassword = (plain) => {
         return bcrypt.compare(plain, this.password)
     }
-    generateToken = async ({email, id}) => {
-        return await jwt.sign({email, id}, process.env.MEXICO_CITY, {expiresIn: "1hr"});
+    generateToken = ({email, id}) => {
+        return jwt.sign({email, id}, process.env.MEXICO_CITY, {expiresIn: "1hr"}); 
     }
     
 };
