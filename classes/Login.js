@@ -12,14 +12,14 @@ class Login{
             }
         })
     
-        if(!instance){
+       
+           if(instance && await instance.checkPassword(req.body.password)){
+            res.status(200).json({token: instance.generateToken(instance)})
+        }else{
             res.status(404).json({message: "Invalid credentials."})
         }
-        console.log(await instance.checkPassword(req.body.password))
-        if(await instance.checkPassword(req.body.password)){
-            console.log(instance.generateToken(instance))
-            res.status(200).json({token: instance.generateToken(instance)})
-        }
+       
+        
 
 
     }

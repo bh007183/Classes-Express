@@ -12,7 +12,7 @@ Profile.init({
     call_sign: {
         type: DataTypes.STRING,
         allowNull: false,
-        len: [1,200]
+        len: [1,200],
     },
 
 }, {
